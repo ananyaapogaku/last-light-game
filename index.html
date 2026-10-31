@@ -1,0 +1,145 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#070b10" />
+    <title>PROJECT: LAST LIGHT</title>
+  </head>
+  <body>
+    <div id="app">
+      <div id="game"></div>
+
+      <!-- MAIN MENU -->
+      <section id="main-menu" class="screen">
+        <div class="menu-backdrop"></div>
+        <div class="menu-content">
+          <div class="eyebrow"><span class="status-dot"></span> LUMEN EXPEDITION PROGRAM</div>
+          <p class="menu-kicker">ELEVEN YEARS SINCE CONTACT</p>
+          <h1 class="game-title">PROJECT<span>:</span><br />LAST LIGHT</h1>
+          <p class="menu-description">
+            The navigation network has gone silent.<br />
+            Four crew members. One final transmission.<br />
+            Not everything out there is dead.
+          </p>
+          <button id="play-button" class="primary-button">ENTER EXPEDITION <span>↗</span></button>
+          <div class="menu-footer">CO-OP SURVIVAL · UP TO 4 PLAYERS · NO ONE LEFT BEHIND</div>
+        </div>
+        <div class="menu-coordinate">VESPER SYSTEM / 09</div>
+      </section>
+
+      <!-- CREATE / JOIN MENU -->
+      <section id="setup-screen" class="screen hidden">
+        <div class="panel">
+          <div class="eyebrow">LUMEN EXPEDITION PROGRAM / CREW SETUP</div>
+          <h2>ASSEMBLE YOUR CREW</h2>
+          <p class="muted">Enter a callsign before deployment.</p>
+
+          <label for="player-name">CALLSIGN</label>
+          <input id="player-name" maxlength="16" placeholder="e.g. NOVA" autocomplete="nickname" />
+
+          <div class="menu-actions">
+            <button id="create-button" class="primary-button">CREATE CREW</button>
+            <div class="separator"><span>OR JOIN AN EXISTING CREW</span></div>
+            <label for="room-code">ROOM CODE</label>
+            <input id="room-code" maxlength="5" placeholder="ABCDE" autocomplete="off" />
+            <button id="join-button" class="secondary-button">JOIN CREW</button>
+          </div>
+          <p id="setup-error" class="error-message" role="status"></p>
+          <button id="back-button" class="text-button">← BACK TO TITLE</button>
+        </div>
+      </section>
+
+      <!-- MULTIPLAYER LOBBY -->
+      <section id="lobby-screen" class="screen hidden">
+        <div class="panel lobby-panel">
+          <div class="eyebrow"><span class="status-dot"></span> SECURE CREW CHANNEL</div>
+          <h2>EXPEDITION LOBBY</h2>
+          <p class="muted">Waiting for crew deployment authorization.</p>
+
+          <div class="room-code-card">
+            <span class="eyebrow">YOUR ROOM CODE</span>
+            <div class="room-code-line">
+              <strong id="lobby-room-code">-----</strong>
+              <button id="copy-code-button" class="copy-button">COPY</button>
+            </div>
+            <p>Share this code with your crew.</p>
+          </div>
+
+          <div class="eyebrow crew-heading">CREW MANIFEST <span id="crew-count">0 / 4</span></div>
+          <div id="crew-list" class="crew-list"></div>
+          <p id="lobby-status" class="muted">Connecting to expedition network...</p>
+          <p id="lobby-error" class="error-message" role="status"></p>
+
+          <button id="launch-button" class="primary-button" disabled>AWAITING CREW</button>
+          <button id="leave-lobby-button" class="text-button">← LEAVE LOBBY</button>
+        </div>
+      </section>
+
+      <!-- EXISTING IN-GAME HUD -->
+      <div id="game-ui" class="hidden">
+        <div id="phase-label">LOCATION: ASTERION</div>
+
+        <header class="topbar">
+          <div class="brand">
+            <span class="status-dot"></span>
+            <div>
+              <div class="eyebrow">LUMEN EXPEDITION PROGRAM</div>
+              <h1>LAST LIGHT <span> / 01</span></h1>
+            </div>
+          </div>
+          <div class="mission-status">
+            <span class="eyebrow">MISSION STATUS</span>
+            <strong><span class="status-dot"></span> SIGNAL LOST</strong>
+          </div>
+        </header>
+
+        <section class="mission-card">
+          <div class="eyebrow">CURRENT DEPLOYMENT</div>
+          <h2>VESPER-9</h2>
+          <p>ABANDONED MINING OUTPOST</p>
+          <div class="thin-line"></div>
+          <div class="objective-label">PRIMARY OBJECTIVE</div>
+          <div class="objective">
+            <span class="objective-icon">◇</span>
+            Recover the missing fuel cell
+          </div>
+          <div class="objective-note">Find the marked supply crate near the outpost.</div>
+        </section>
+
+        <section class="resource-panel">
+          <div class="eyebrow">SHIP RESOURCES</div>
+          <div class="resource">
+            <span>FUEL</span><div class="meter"><i style="width:42%"></i></div><b>42%</b>
+          </div>
+          <div class="resource">
+            <span>HULL</span><div class="meter"><i style="width:78%"></i></div><b>78%</b>
+          </div>
+          <div class="resource">
+            <span>O₂</span><div class="meter"><i style="width:64%"></i></div><b>64%</b>
+          </div>
+        </section>
+
+        <div class="coordinates">
+          <span class="eyebrow">SECTOR 07-A</span>
+          <span id="coords">X +000 / Z +000</span>
+        </div>
+
+        <div class="interaction" id="interaction">
+          <span class="keycap">E</span>
+          <span>INTERACT WITH SUPPLY CRATE</span>
+        </div>
+
+        <div class="center-reticle">+</div>
+
+        <footer class="bottom-bar">
+          <div><span class="live-dot"></span> SUIT SYSTEMS ONLINE</div>
+          <div class="controls">MOVE <b>W A S D</b><span>•</span> INTERACT <b>E</b></div>
+          <div id="message">AWAITING CREW INPUT</div>
+        </footer>
+      </div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

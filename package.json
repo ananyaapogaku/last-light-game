@@ -1,0 +1,23 @@
+{
+  "name": "project-last-light-25d",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Four-player browser-based 2.5D cooperative survival horror game.",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview",
+    "server": "node server.cjs",
+    "start": "node server.cjs"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "socket.io": "^4.8.1",
+    "socket.io-client": "^4.8.4",
+    "three": "^0.186.1"
+  },
+  "devDependencies": {
+    "vite": "^8.3.0"
+  }
+}
