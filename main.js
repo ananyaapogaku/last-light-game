@@ -2387,8 +2387,7 @@ const lobbyStatus = document.getElementById("lobby-status");
 const launchButton = document.getElementById("launch-button");
 
 // Connect to your existing Node.js server.
-const socket = io("http://localhost:3000");
-
+const socket = io();
 let currentRoomCode = null;
 let myPlayerId = null;
 
